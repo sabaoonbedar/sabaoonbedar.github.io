@@ -7,11 +7,17 @@
     <title>Sabaoon Bedar | AI Solution Engineer</title>
     <style>
       :root {
-        --bg: #f9fafb;
-        --fg: #111;
-        --muted: #333;
+        /* Facebook-like blue background + light foreground */
+        --bg: #1877f2;
+        --fg: #ffffff;
+        --muted: rgba(255, 255, 255, 0.9);
       }
-      html, body { margin: 0; padding: 0; font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--fg); }
+
+      html, body {
+        margin: 0; padding: 0;
+        font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: var(--bg); color: var(--fg);
+      }
       .l-main { width: 100%; }
 
       /* --- HERO LAYOUT --- */
@@ -21,25 +27,36 @@
         grid-template-rows: auto auto;
         grid-template-areas:
           "text image"
-          "social image"; /* forces links under text while image stays to the right */
+          "social image";
         align-items: center;
         gap: 3rem;
         padding: 4rem 10%;
         position: relative;
+        /* solid blue container, matches page bg for seamless look */
+        background: var(--bg);
       }
+
       .home__data { grid-area: text; max-width: 720px; z-index: 2; }
       .home__title { font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin: 0 0 1rem; }
 
       .home__desc { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 70ch; text-align: justify; hyphens: auto; }
       .home__desc b { color: var(--fg); font-weight: 600; }
 
-      .home__social { grid-area: social; display: flex; gap: 1rem; align-items: center; margin-top: .5rem; z-index: 2; }
-      .home__social a { font-size: 1.8rem; color: #333; opacity: .9; text-decoration: none; transition: transform .15s ease, opacity .15s ease; }
+      .home__social {
+        grid-area: social; display: flex; gap: 1rem; align-items: center; margin-top: .5rem; z-index: 2;
+      }
+      .home__social a {
+        font-size: 1.8rem;
+        /* ensure icons are legible on blue */
+        color: var(--fg);
+        opacity: .95; text-decoration: none;
+        transition: transform .15s ease, opacity .15s ease;
+      }
       .home__social a:hover { transform: translateY(-2px); opacity: 1; }
 
       .home__img { grid-area: image; position: relative; text-align: right; justify-self: end; z-index: 1; }
-      .home__blob { width: min(100%, 420px); height: auto; }
-      .home__blob-img { width: auto; height: auto; }
+      .home__blob { width: min(100%, 420px); height: auto; display: block; }
+      .home__blob-img { width: 100%; height: 100%; }
 
       /* --- RESPONSIVE --- */
       @media (max-width: 900px) {
@@ -81,14 +98,21 @@
 
         <!-- RIGHT: IMAGE -->
         <div class="home__img" aria-label="Portrait">
-          <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+          <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" role="img">
             <mask id="mask0" mask-type="alpha">
               <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" fill="#f5f5f5"/>
             </mask>
             <g mask="url(#mask0)">
               <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" fill="#eaeaea"/>
-              <!-- REPLACE sb.jpeg with your actual path/file name -->
-              <image class="home__blob-img" x="50" y="60" href="sb.jpeg" alt="Sabaoon Bedar portrait"/>
+              <!-- The key changes: make the image fill and crop inside the mask -->
+              <image
+                class="home__blob-img"
+                href="sb.jpeg"
+                x="0" y="0"
+                width="100%" height="100%"
+                preserveAspectRatio="xMidYMid slice"
+                alt="Sabaoon Bedar portrait"
+              />
             </g>
           </svg>
         </div>
