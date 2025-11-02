@@ -3,180 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- ===== BOX ICONS ===== -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
     <title>Sabaoon Bedar | AI Solution Engineer</title>
-  </head>
-  <body
-    style="
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f9fafb;
-      color: #222;
-      line-height: 1.6;
-      overflow-x: hidden;
-    "
-  >
-    <main class="l-main" style="width: 100%;">
-      <!--===== HOME =====-->
-      <section
-        class="home bd-grid"
-        id="home"
-        style="
-          display: grid;
-          grid-template-columns: 1.2fr 1fr;
-          align-items: center;
-          gap: 3rem;
-          padding: 4rem 10%;
-          position: relative;
-        "
-      >
-        <div
-          class="home__data"
-          style="position: relative; z-index: 2; max-width: 720px;"
-        >
-          <h1
-            class="home__title"
-            style="
-              font-size: 2.8rem;
-              font-weight: 700;
-              color: #111;
-              margin-bottom: 1rem;
-              line-height: 1.2;
-            "
-          >
-            Sabaoon Bedar
-          </h1>
+    <style>
+      :root {
+        --bg: #f9fafb;
+        --fg: #111;
+        --muted: #333;
+      }
+      html, body { margin: 0; padding: 0; font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--fg); }
+      .l-main { width: 100%; }
 
-          <p
-            style="
-              font-size: 1rem;
-              color: #333;
-              line-height: 1.75;
-              max-width: 70ch;
-            "
-          >
-            I am Sabaoon Bedar, an AI Solution Engineer specializing in
-            cloud-based intelligent systems and deep learning applications.
+      /* --- HERO LAYOUT --- */
+      #home {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+          "text image"
+          "social image"; /* forces links under text while image stays to the right */
+        align-items: center;
+        gap: 3rem;
+        padding: 4rem 10%;
+        position: relative;
+      }
+      .home__data { grid-area: text; max-width: 720px; z-index: 2; }
+      .home__title { font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin: 0 0 1rem; }
+
+      .home__desc { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 70ch; text-align: justify; hyphens: auto; }
+      .home__desc b { color: var(--fg); font-weight: 600; }
+
+      .home__social { grid-area: social; display: flex; gap: 1rem; align-items: center; margin-top: .5rem; z-index: 2; }
+      .home__social a { font-size: 1.8rem; color: #333; opacity: .9; text-decoration: none; transition: transform .15s ease, opacity .15s ease; }
+      .home__social a:hover { transform: translateY(-2px); opacity: 1; }
+
+      .home__img { grid-area: image; position: relative; text-align: right; justify-self: end; z-index: 1; }
+      .home__blob { width: min(100%, 420px); height: auto; }
+      .home__blob-img { width: auto; height: auto; }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 900px) {
+        #home {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "image"
+            "text"
+            "social";
+          gap: 2rem;
+          padding: 2.5rem 6%;
+        }
+        .home__img { justify-self: center; text-align: center; }
+        .home__title { font-size: 2.2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="l-main">
+      <section id="home">
+        <!-- LEFT: TEXT -->
+        <div class="home__data">
+          <h1 class="home__title">Sabaoon Bedar</h1>
+          <p class="home__desc">
+            I am Sabaoon Bedar, an AI Solution Engineer specializing in cloud-based intelligent systems and deep learning applications.
             <br /><br />
-            I design and deploy AI-driven architectures using Microsoft Azure,
-            LangChain, RAG / self-RAG, and prompt engineering to build scalable,
-            context-aware solutions. <br /><br />
-            My work focuses on integrating machine learning, OCR, and data
-            automation into intelligent enterprise systems for document
-            understanding, contract assessment, and AI-powered analytics.
+            I design and deploy AI-driven architectures using Microsoft Azure, LangChain, RAG / self-RAG, and prompt engineering to build scalable, context-aware solutions.
             <br /><br />
-            I develop distributed cloud workflows using Azure Durable Functions,
-            Azure Cognitive Search, Blob Storage, Function Orchestrators, Azure
-            Queues, Service Bus, and Event Grid. <br /><br />
-            <strong style="color: #111; font-weight: 600;">Tech Stack</strong
-            ><br />
-            Azure · Durable Functions · Cognitive Search · Blob Storage ·
-            Function Orchestrator · Queues · Service Bus · Event Grid · Python ·
-            Deep Learning · LangChain · RAG / self-RAG · Prompt Engineering ·
-            LLMs · Machine Learning · OCR · React · Angular · Laravel · React
-            Native · Firebase · Full-Stack Web Development <br /><br />
-            I am an eager learner — throw me into anything, and I’ll provide you
-            results.
+            My work focuses on integrating machine learning, OCR, and data automation into intelligent enterprise systems for document understanding, contract assessment, and AI-powered analytics.
+            <br /><br />
+            I develop distributed cloud workflows using Azure Durable Functions, Azure Cognitive Search, Blob Storage, Function Orchestrators, Azure Queues, Service Bus, and Event Grid.
+            <br /><br />
+            <b>Tech Stack</b><br />
+            Azure · Durable Functions · Cognitive Search · Blob Storage · Function Orchestrator · Queues · Service Bus · Event Grid · Python · Deep Learning · LangChain · RAG / self-RAG · Prompt Engineering · LLMs · Machine Learning · OCR · React · Angular · Laravel · React Native · Firebase · Full-Stack Web Development
+            <br /><br />
+            I am an eager learner — throw me into anything, and I’ll provide you results.
           </p>
         </div>
 
-        <div
-          class="home__social"
-          style="
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            position: relative;
-            z-index: 2;
-          "
-        >
-          <a
-            href="https://www.linkedin.com/in/sabaoonbedar"
-            class="home__social-icon"
-            style="font-size: 1.8rem; color: #333; opacity: 0.85; text-decoration: none;"
-          >
-            <i class="bx bxl-linkedin"></i>
-          </a>
-          <a
-            href="https://stackoverflow.com/users/7312335/sabaoon-bedar"
-            class="home__social-icon"
-            style="font-size: 1.8rem; color: #333; opacity: 0.85; text-decoration: none;"
-          >
-            <i class="bx bxl-stack-overflow"></i>
-          </a>
-          <a
-            href="https://github.com/sabaoonbedar"
-            class="home__social-icon"
-            style="font-size: 1.8rem; color: #333; opacity: 0.85; text-decoration: none;"
-          >
-            <i class="bx bxl-github"></i>
-          </a>
-          <a
-            href="https://baidar-sabaoon.medium.com/"
-            class="home__social-icon"
-            style="font-size: 1.8rem; color: #333; opacity: 0.85; text-decoration: none;"
-          >
-            <i class="bx bxl-medium"></i>
-          </a>
-        </div>
-
-        <div
-          class="home__img"
-          style="
-            position: relative;
-            z-index: 1;
-            justify-self: flex-end;
-            text-align: right;
-          "
-        >
-          <svg
-            class="home__blob"
-            viewBox="0 0 479 467"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            style="
-              width: 100%;
-              max-width: 400px;
-              height: auto;
-              position: relative;
-              margin-right: 2rem;
-            "
-          >
+        <!-- RIGHT: IMAGE -->
+        <div class="home__img" aria-label="Portrait">
+          <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
             <mask id="mask0" mask-type="alpha">
-              <path
-                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
-                fill="#f5f5f5"
-              />
+              <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" fill="#f5f5f5"/>
             </mask>
             <g mask="url(#mask0)">
-              <path
-                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
-                fill="#eaeaea"
-              />
-              <image
-                class="home__blob-img"
-                x="50"
-                y="60"
-                href="sb.jpeg"
-                style="width: auto; height: auto; position: relative;"
-              />
+              <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" fill="#eaeaea"/>
+              <!-- REPLACE sb.jpeg with your actual path/file name -->
+              <image class="home__blob-img" x="50" y="60" href="sb.jpeg" alt="Sabaoon Bedar portrait"/>
             </g>
           </svg>
+        </div>
+
+        <!-- LINKS directly under the text column -->
+        <div class="home__social">
+          <a href="https://www.linkedin.com/in/sabaoonbedar" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+          <a href="https://stackoverflow.com/users/7312335/sabaoon-bedar" aria-label="Stack Overflow"><i class='bx bxl-stack-overflow'></i></a>
+          <a href="https://github.com/sabaoonbedar" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+          <a href="https://baidar-sabaoon.medium.com/" aria-label="Medium"><i class='bx bxl-medium'></i></a>
         </div>
       </section>
     </main>
 
-    <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js"></script>
   </body>
 </html>
